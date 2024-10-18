@@ -78,14 +78,39 @@ At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval fo
 
 ### Now add in scatterplot
 
+```{r}
+plot(SIMS~GRIP,data=data)
+model.2=lm(SIMS~ARM,data=data)
+abline(model.2)
+```
+
+This scatterplot shows that simulated strength increases with the increase in grip strength.
 
 ### Numerical results 
+```{r}
+cor(SIMS~GRIP,data=data)
+```
 
+The numerical correlation = 0.64 shows moderate positive correlation between sim score and grip strength.
 
 ### Inferential  (Build model.2)
   
+```{r}
+summary.lm(model.2)
+```
+
+The model.2 shows that the intercept and coefficient of GRIP are both significantly different from 0.05
+
 
 #### predict model.2 at target point
+
+```{r}
+targtPoint = data.frame(GRIP=94, ARM=88)
+predictInt = predict(model.2, targtPoint, interval = 'prediction')
+print(predictInt)
+```
+
+At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval for that score is SIMS between -1.73 and 3.14
 
 #### now add the model fit to our plot for model.2
   
@@ -95,9 +120,17 @@ At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval fo
 
 ### Numerical results (cor)
 
-`
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
+The numerical shows that the correlation = 0.74 shows that there is a moderate positive correlation between simulated strentgth scores and grip strength.
   
 ### Inferential  (Build 2-dimentional model.3)
+
+```{r}
+summary.lm(model.2)
+```
+
 
 #### predict model.3 at target point
   
