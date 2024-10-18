@@ -110,7 +110,7 @@ predictInt = predict(model.2, targtPoint, interval = 'prediction')
 print(predictInt)
 ```
 
-At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval for that score is SIMS between -1.73 and 3.14
+At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval for that score is SIMS between -1.73 and 3.14   
 
 #### now add the model fit to our plot for model.2
   
