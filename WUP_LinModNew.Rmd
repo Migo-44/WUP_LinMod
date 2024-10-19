@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Read about the data from the website where it is staged.  Then form three regression models; Model1 is SIMS~ARM, Model2 is SIMS~GRIP, and Model3 is SIMS~ARM+GRIP. For each model find a 95% prediction interval of SIMS given a value of 94  for GRIP and 88 for ARM. Compare Model1 with Model3 using anova. Write it up in a markdown document, push the project up to your github account and submit it back to canvas as link. 
+Read about the data from the website where it is staged.  Then form three regression models; Model1 is SIMS~ARM, Model2 is SIMS~GRIP, and Model3 is SIMS~ARM+GRIP. For each model find a 95% prediction interval of SIMS given a value of 94  for GRIP and 88 for ARM. Compare Model1 with Model3 using anova. Write it up in a markdown document, push the project up to your github account and submit it back to canvas as link.    
 
  
 
@@ -49,7 +49,7 @@ This scatterplot shows that simulated strength increases with the increase in ar
 cor(SIMS~ARM,data=data)
 ```
 
-The numerical correlation = 0.69 shows moderate positive correlation between sim score and arm strength.
+The numerical correlation = 0.69 shows moderate positive correlation between sim score and arm strength.    
 
 ### Inferential  (Build model.1)
 
@@ -123,7 +123,7 @@ At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval fo
 ```{r}
 cor(SIMS~ARM+GRIP,data=data)
 ```
-The numerical shows that the correlation = 0.74 shows that there is a moderate positive correlation between simulated strentgth scores and grip strength.
+The numerical shows that the correlation = 0.74 shows that there is a moderate positive correlation between simulated strentgth scores and grip strength.      
   
 ### Inferential  (Build 2-dimentional model.3)
 
