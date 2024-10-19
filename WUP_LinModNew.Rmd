@@ -94,6 +94,9 @@ cor(SIMS~GRIP,data=data)
 The numerical correlation = 0.64 shows moderate positive correlation between sim score and grip strength.
 
 ### Inferential  (Build model.2)
+```{r}
+model.2=lm(SIMS~GRIP,data=data)
+```
   
 ```{r}
 summary.lm(model.2)
@@ -123,22 +126,43 @@ At ARM=88, GRIP=94, the predicted SIMS score is 0.71. 95% confidence interval fo
 ```{r}
 cor(SIMS~ARM+GRIP,data=data)
 ```
-The numerical shows that the correlation = 0.74 shows that there is a moderate positive correlation between simulated strentgth scores and grip strength.      
+The numerical shows that the correlation = 0.74 shows that there is a moderate positive correlation between simulated strength scores and grip strength.      
   
 ### Inferential  (Build 2-dimentional model.3)
-
 ```{r}
-summary.lm(model.2)
+model.3=lm(SIMS~ARM+GRIP,data=data)
+print(model.3)
 ```
-
+```{r}
+summary.lm(model.3)
+```
+The model.2 shows that the intercept and coefficient of GRIP are both significantly different from 0.05
 
 #### predict model.3 at target point
-  
+
+```{r}
+targtPoint = data.frame(GRIP=94, ARM=88)
+predictInt = predict(model.3, targtPoint, interval = 'prediction')
+print(predictInt)
+```
+At ARM=88, GRIP=94, the predicted SIMS score is 0.15. 95% confidence interval for that score is SIMS between -2.13 and 2.43
+
 
 ## Comparing nested models ANOVA Test
 
 ### Model.1 vs Model.3
+
+```{r}
+anova(model.1,model.3)
+```
+The value .000004994 shows there is a difference. Model.1 has adjusted r squared of .467  and Model.3 has adjusted r squared of .5358, so model.3 is a better model.
+
 ### Model.2 vs Model.3
+```{r}
+anova(model.2,model.3)
+```
+The value .000004994 shows there is a difference. Model.2 has adjusted r squared of .4053 and Model.3 has adjusted r squared of .5358, so model.3 is a better model.
+
 
 ## Informally compare Model.1 with model.2
-
+ Model.1 has adjusted r squared of .467 and Model.2 has adjusted r squared of .4053 so Model.1 is better.
